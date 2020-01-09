@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content  %}
+{% load staticfiles %}
+<div class="row mt-5 mb-5">
+
+  <div class="col-8 text-justify">
+    <h1>Medicine - Informatics - Biology</h1>
+    <h5 class="subtitle">How NGS brings us together</h5>
+    <br>
+    <br>
+    <div class="body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus mauris a diam maecenas sed enim. Elementum integer enim neque volutpat ac tincidunt. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Neque vitae tempus quam pellentesque nec nam aliquam sem et. Scelerisque in dictum non consectetur a erat nam at. Imperdiet sed euismod nisi porta lorem mollis aliquam. Enim sit amet venenatis urna cursus eget nunc scelerisque. Amet porttitor eget dolor morbi non arcu risus quis. Ut sem viverra aliquet eget sit amet tellus.</p>
+      <br>
+    <h5 class="subtitle">ORGANIZING COMMITTEE</h5>
+    <hr>
+    <p>Dr. X <strong>Chair</strong> </p>
+    <p>Dr. X <strong>Chair</strong> </p>
+    <p>Dr. X </p>
+    <p>Dr. X </p>
+    <p>Dr. X </p>
+    <br>
+
+    <h5 class="subtitle">SESSION TOPICS</h5>
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+    <br>
+    </div>
+  </div>
+
+  <div class="col-4 text-center">
+    <h5 class="subtitle">ORGANIZED BY</h5>
+    <hr>
+    <img src="{% static 'meinbio_symbol_noShadow_vec.png' %}" alt="" style="height:300px">
+    <br>
+    <br>
+    <br>
+    <br>
+    <h5 class="subtitle">SPONSORS</h5>
+    <hr>
+    <img src="{% static 'DFG-logo-blau.svg.png' %}" alt="" style="width:100%">
+    <br>
+    <br>
+    <br>
+    <br>
+    <h5 class="subtitle">MEMBER INSTITUTIONS</h5>
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        <img src="{% static 'logo.png' %}" alt="" style="height:100px">
+      </div>
+      <div class="col-6">
+        <img src="{% static '14_MPI_IE_logo_mit_180.gif' %}" alt="" style="height:100px">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}

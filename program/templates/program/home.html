@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="" style="height:600px;background-position: center; background-image:url({% static 'dna-colored.jpg'%}); background-repeat: no-repeat;">
+<div class="row" >
+
+  <div class="col-md-12 text-center" style='padding-top:40px'>
+    <h1>Medicine - Informatics - Biology</h1>
+    <h3 class="subtitle">How NGS brings us together</h3>
+    <br>
+
+    <p style="font-size: 1.5rem;font-weight: 200;"><strong>Freiburg, 4-6 November 2020</strong></p>
+    <br>
+    {% if user.is_authenticated %}
+        <a href="{% url 'submit' %}"><button type="button" name="button" class="btn btn-secondary btn-lg"> Submit your application </button></a>
+    {% else %}
+        <a href="{% url 'signup' %}"><button type="button" name="button" class="btn btn-secondary btn-lg"> Register now! </button></a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>Already have an account? Then <a href="{% url 'login' %}">Login</a> </p>
+    {% endif %}
+  </div>
+
+</div>
+
+
+
+</div>
+
+{% endblock %}
