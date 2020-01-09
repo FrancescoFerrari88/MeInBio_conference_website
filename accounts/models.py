@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 class Contributor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    author = models.OneToOneField(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=500, default="")
     abstract = models.TextField(default="")
     key_words = models.CharField(max_length=500,default="")
@@ -22,4 +22,7 @@ class Contributor(models.Model):
     bio = models.TextField(default="")
 
     def __str__(self):
-        return '{}_{}'.format(self.user.first_name, self.user.last_name)
+        return '{}_{}'.format(self.author.first_name, self.author.last_name)
+
+    def get_absolute_url(self):
+        return reverse('home')

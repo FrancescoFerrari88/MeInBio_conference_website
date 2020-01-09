@@ -1,19 +1,16 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% block content  %}
 <div class="content-section">
   <form class="" action="" method="POST">
     {% csrf_token %}
     <fieldset class='form-group'>
-    {% if user.contributor.pk %}
-      <legend class='border-bottom mb-4'>Update your Application</legend>
-    {% else %}
-      <legend class='border-bottom mb-4'>Submit your Application</legend>
-    {% endif %}
-      {{ form|crispy }}
+      <legend class='border-bottom mb-4'>Delete Submission</legend>
+      <div class="alert alert-danger" role="alert">
+          Are you shure you want to delete your application?
+      </div>
     </fieldset>
     <div class="form-group">
-      <button class="btn btn-outline-info" type="submit" name="button">Submit</button>
+      <button class="btn btn-outline-danger" type="submit" name="button">Yes, Delete</button>
     </div>
   </form>
 

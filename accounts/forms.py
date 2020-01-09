@@ -13,4 +13,4 @@ class createUser(UserCreationForm):
 class ContributorForm(ModelForm):
     class Meta:
         model = Contributor
-        fields = ['user','contribution','title','abstract','key_words','bio']
+        fields = ['author','contribution','title','abstract','key_words','bio']

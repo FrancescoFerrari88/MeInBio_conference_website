@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 # from django.contrib.auth.models import User
 # from django.contrib.auth.forms import UserCreationForm
 from .forms import createUser, ContributorForm
@@ -9,7 +10,9 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (
                                 ListView,
                                 DetailView,
-                                CreateView
+                                CreateView,
+                                UpdateView,
+                                DeleteView
                                   )
 from .models import Contributor
 
@@ -25,10 +28,41 @@ def signup(request):
         form = createUser()
     return render(request, 'accounts/signup.html',{'form':form})
 
-class createContributorView(CreateView):
+class createContributorView(LoginRequiredMixin,SuccessMessageMixin,CreateView):
     model = Contributor
+    fields = ['contribution','title','abstract','key_words','bio']
+    success_message = "Your application has been saved! Thanks for being awesome!"
     template_name = 'accounts/submission.html'
-    context_object_name = 'submission_form'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class updateContributorView(LoginRequiredMixin,UserPassesTestMixin, SuccessMessageMixin,UpdateView):
+    model = Contributor
+    fields = ['contribution','title','abstract','key_words','bio']
+    success_message = "Your application has been updated!"
+    template_name = 'accounts/submission.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        application = self.get_object()
+        if self.request.user == application.author:
+            return True
+        return False
+
+class deleteContributorView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Contributor
+
+    def test_func(self):
+        application = self.get_object()
+        if self.request.user == application.author:
+            return True
+        return False
+
 
 class CustomLoginView(SuccessMessageMixin, auth_views.LoginView):
     success_message = "you are now logged in"
