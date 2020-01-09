@@ -6,6 +6,12 @@ from .forms import createUser, ContributorForm
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic import (
+                                ListView,
+                                DetailView,
+                                CreateView
+                                  )
+from .models import Contributor
 
 def signup(request):
     if request.method == 'POST':
@@ -19,19 +25,10 @@ def signup(request):
         form = createUser()
     return render(request, 'accounts/signup.html',{'form':form})
 
-@login_required
-def submit(request):
-    if request.method == 'POST':
-        submission_form = ContributorForm(request.POST, instance = request.user.contributor)
-        if submission_form.is_valid():
-            submission_form.save()
-            # username = form.cleaned_data.get('username')
-            messages.success(request, f'Your application has been saved! Thanks for being awesome!')
-            return redirect('home')
-    else:
-        submission_form = ContributorForm(instance = request.user.contributor)
-    return render(request, 'accounts/submission.html',{'submission_form':submission_form})
-
+class createContributorView(CreateView):
+    model = Contributor
+    template_name = 'accounts/submission.html'
+    context_object_name = 'submission_form'
 
 class CustomLoginView(SuccessMessageMixin, auth_views.LoginView):
     success_message = "you are now logged in"
