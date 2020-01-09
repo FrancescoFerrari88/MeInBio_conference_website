@@ -14,12 +14,12 @@
     <br>
     {% if user.is_authenticated %}
       {% if user.contributor.pk %}
-        <a href="{% url 'update' user.contributor.pk %}"><button type="button" name="button" class="btn btn-secondary btn-lg"> Update your application </button></a>
+        <a href="{% url 'update' user.contributor.pk %}"><button type="button" name="button" class="btn btn-dark btn-lg"> Update your application </button></a>
       {% else %}
-        <a href="{% url 'submit' %}"><button type="button" name="button" class="btn btn-secondary btn-lg"> Submit your application </button></a>
+        <a href="{% url 'submit' %}"><button type="button" name="button" class="btn btn-dark btn-lg"> Submit your application </button></a>
       {% endif %}
     {% else %}
-        <a href="{% url 'signup' %}"><button type="button" name="button" class="btn btn-secondary btn-lg"> Register now! </button></a>
+        <a href="{% url 'signup' %}"><button type="button" name="button" class="btn btn-dark btn-lg"> Register now! </button></a>
         <br>
         <br>
         <br>

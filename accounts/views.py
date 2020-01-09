@@ -56,6 +56,9 @@ class updateContributorView(LoginRequiredMixin,UserPassesTestMixin, SuccessMessa
 
 class deleteContributorView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Contributor
+    success_url = '/'
+    success_message = "Your application has been deleted!"
+
 
     def test_func(self):
         application = self.get_object()

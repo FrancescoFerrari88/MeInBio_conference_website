@@ -39,6 +39,7 @@
             {% if user.is_authenticated %}
             {% if user.contributor.pk %}
              <a class="m-3" href="{% url 'update' user.contributor.pk %}">Update application</a>
+             <a class="m-3" href="{% url 'delete' user.contributor.pk %}">Delete application</a>
             {% else %}
              <a class="m-3" href="{% url 'submit' %}">Submit application</a>
             {% endif %}
