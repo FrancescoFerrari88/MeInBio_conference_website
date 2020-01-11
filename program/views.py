@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from accounts.models import Contributor
 
 def home(request):
     return render(request, 'program/home.html')
@@ -10,7 +12,8 @@ def programme(request):
     return render(request, 'program/programme.html')
 
 def speakers(request):
-    return render(request, 'program/speakers.html')
+    sps = Contributor.objects.all()
+    return render(request, 'program/speakers.html',{'sps':sps})
 
 def abstracts(request):
     return render(request, 'program/abstracts.html')

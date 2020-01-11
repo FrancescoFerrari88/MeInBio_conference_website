@@ -9,13 +9,21 @@
       <br>
       <h3>Talks</h3>
       <hr>
-      <p>Please come back in a few weeks</p>
+      {% for sp in sps %}
+        {% if sp.selected and sp.contribution == "SP" %}
+        <a href="#"> <h4 class='subtitle'>{{sp.author.first_name}} {{sp.author.last_name}}</h4> </a>
+        {% endif %}
+      {% endfor %}
       <br>
       <br>
       <br>
       <h3>Posters</h3>
       <hr>
-      <p>Please come back in a few weeks</p>
+      {% for sp in sps %}
+        {% if sp.selected and sp.contribution == "PO" %}
+        <a href="#"> <h4 class='subtitle'>{{sp.author.first_name}} {{sp.author.last_name}}</h4> </a>
+        {% endif %}
+      {% endfor %}
 
 
     </div>

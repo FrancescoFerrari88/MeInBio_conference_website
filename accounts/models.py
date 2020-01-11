@@ -20,6 +20,7 @@ class Contributor(models.Model):
                    default=SPEACH,
                    )
     bio = models.TextField(default="")
+    selected = models.BooleanField(default=False)
 
     def __str__(self):
         return '{}_{}'.format(self.author.first_name, self.author.last_name)
