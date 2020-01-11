@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content  %}
+
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata mt-3 mb-5">
+          <h4 class="mr-2">{{ object.author.first_name }} {{ object.author.last_name }}</h4>
+          <br>
+          <p>
+            <a class="btn btn-sm btn-outline-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              short bio
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              {{ object.bio }}
+            </div>
+          </div>
+        </div>
+        <small class="text-muted">key words: {{ object.key_words }}</small>
+        <h2 class="title">{{ object.title }}</h2>
+        <br>
+        <p class="subtitle">{{ object.abstract }}</p>
+      </div>
+    </article>
+
+{% endblock content %}

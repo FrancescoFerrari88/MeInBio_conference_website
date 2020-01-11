@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from accounts.models import Contributor
+from django.views.generic import DetailView
+
 
 def home(request):
     return render(request, 'program/home.html')
@@ -14,6 +16,11 @@ def programme(request):
 def speakers(request):
     sps = Contributor.objects.all()
     return render(request, 'program/speakers.html',{'sps':sps})
+
+class SpeakerDetailedView(DetailView):
+    model = Contributor
+    template_name = "program/program_detail.html"
+    fields = ['author','title','abstract']
 
 def abstracts(request):
     return render(request, 'program/abstracts.html')

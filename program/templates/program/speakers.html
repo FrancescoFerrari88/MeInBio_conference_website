@@ -5,13 +5,13 @@
 <div class="" style="height:600px; background-position: right; background-image:url({% static 'exagons.gif' %}); background-repeat: no-repeat;">
 
   <div class="row">
-    <div class="col-sm-6 mt-3">
+    <div class="col-sm-3 mt-3">
       <br>
       <h3>Talks</h3>
       <hr>
       {% for sp in sps %}
-        {% if sp.selected and sp.contribution == "SP" %}
-        <a href="#"> <h4 class='subtitle'>{{sp.author.first_name}} {{sp.author.last_name}}</h4> </a>
+        {% if sp.selected and sp.contribution == "TK" %}
+        <a href="{% url 'speaker-detail' sp.id %}"> <h4 class='subtitle'>{{sp.author.first_name}} {{sp.author.last_name}}</h4> </a>
         {% endif %}
       {% endfor %}
       <br>

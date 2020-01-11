@@ -8,10 +8,10 @@ class Contributor(models.Model):
     abstract = models.TextField(default="")
     key_words = models.CharField(max_length=500,default="")
 
-    SPEACH = 'SP'
+    SPEACH = 'TK'
     POSTER = 'PO'
     CONTRIBUTION_CHOICES = [
-        (SPEACH,'Speach'),
+        (SPEACH,'Talk'),
         (POSTER,'Poster')
     ]
     contribution = models.CharField(
