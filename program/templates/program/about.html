@@ -1,6 +1,28 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content  %}
+<div class="row">
+   <div class="col-md-7" style="text-align:justify;">
+     <h1 class="mt-5 mb-2">What is MeInBio?</h1>
+     <br>
+     <p class="subtitle">Me<em>In</em>Bio is a structured doctoral program (research training group)
+       with the aim to create an understanding of transcriptional control at
+       high spatial and temporal resolution.</p>
 
-<h1>this is the about page</h1>
+     <p class="subtitle">The research training group is funded by the <strong>German Research Foundation</strong>
+       (DFG) and combines 13 research groups from the <strong>Albert-Ludwigs-University
+       Freiburg</strong> and the <strong>Max Planck Institute of Immunobiology and Epigenetics Freiburg</strong>. </p>
+
+     <p class="subtitle">To address fundamental open questions with regard to transcriptional
+       control in transitory developmental or adaptation states, the research
+       training group employs high-throughput sequencing approaches and high-resolution technology.
+       The RTG wants to refine biocomputational algorithms as prerequisites for efficient data analyses.</p>
+       <br><br>
+   </div>
+
+   <div class="col-md-5 text-center">
+     <img src="{% static 'meinbio_symbol_noShadow_vec.png' %}" alt="" class="mt-5" style="height:500px; ">
+   </div>
+</div>
 
 {% endblock content %}
