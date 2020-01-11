@@ -14,7 +14,7 @@ def programme(request):
     return render(request, 'program/programme.html')
 
 def speakers(request):
-    sps = Contributor.objects.all()
+    sps = Contributor.objects.all().order_by('author__last_name')
     return render(request, 'program/speakers.html',{'sps':sps})
 
 class SpeakerDetailedView(DetailView):
