@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
-django_heroku.settings(locals())
+if os.environ.get('DEBUG_VALUE') == "False":
+    import django_heroku
+    django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG_VALUE')
 
-ALLOWED_HOSTS = ["meinbio-symposium.herokuapp.com"]
+ALLOWED_HOSTS = ["meinbio-symposium.herokuapp.com", "localhost"]
 
 
 # Application definition
@@ -132,7 +133,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'MeInBio_conference/static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
