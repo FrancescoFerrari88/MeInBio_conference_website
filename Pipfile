@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "~=2.2"
+dash = "*"
+"psycopg2-binary" = "*"
+django-crispy-forms = "==1.8.1"
+gunicorn = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"
