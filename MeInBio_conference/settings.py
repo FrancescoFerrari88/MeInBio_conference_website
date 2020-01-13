@@ -29,7 +29,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG_VALUE')
 
-ALLOWED_HOSTS = ["meinbio-symposium.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["meinbio-symposium.herokuapp.com"]
+if os.environ.get('DEBUG_VALUE') == "True":
+    ALLOWED_HOSTS.append("localhost")
 
 
 # Application definition
@@ -151,3 +153,6 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+
+if os.environ.get('DEBUG_VALUE') == "False":
+    django_heroku.settings(locals())
