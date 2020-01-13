@@ -56,8 +56,8 @@
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
           <a class="p-2 {% if request.resolver_match.url_name == 'welcome' %}active{% else %}text-muted{% endif %}" href="{% url 'welcome' %}">Welcome</a>
-          <a class="p-2 {% if request.resolver_match.url_name == 'programme' %}active{% else %}text-muted{% endif %}" href="{% url 'programme' %}">Programme</a>
-          <a class="p-2 {% if request.resolver_match.url_name == 'speakers' %}active{% else %}text-muted{% endif %}" href="{% url 'speakers' %}">Speakers</a>
+          <!-- <a class="p-2 {% if request.resolver_match.url_name == 'programme' %}active{% else %}text-muted{% endif %}" href="{% url 'programme' %}">Programme</a> -->
+          <!-- <a class="p-2 {% if request.resolver_match.url_name == 'speakers' %}active{% else %}text-muted{% endif %}" href="{% url 'speakers' %}">Speakers</a> -->
           <!-- <a class="p-2 {% if request.resolver_match.url_name == 'abstracts' %}active{% else %}text-muted{% endif %}" href="{% url 'abstracts' %}">Abstracts</a> -->
           <a class="p-2 {% if request.resolver_match.url_name == 'about' %}active{% else %}text-muted{% endif %}" href="{% url 'about' %}">About Us</a>
         </nav>
