@@ -9,6 +9,7 @@ dash = "*"
 "psycopg2-binary" = "*"
 django-crispy-forms = "==1.8.1"
 gunicorn = "*"
+django-heroku = "*"
 
 [dev-packages]
 
