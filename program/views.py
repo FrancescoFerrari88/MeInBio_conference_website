@@ -27,3 +27,9 @@ def abstracts(request):
 
 def about(request):
     return render(request, 'program/about.html')
+
+def privacy(request):
+    return render(request, 'program/privacy.html')
+
+def legal(request):
+    return render(request, 'program/legal.html')

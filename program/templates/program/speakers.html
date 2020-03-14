@@ -7,6 +7,17 @@
   <div class="row">
     <div class="col-sm-3 mt-3">
       <br>
+
+      <h3>Invited Talks</h3>
+      <hr>
+      {% for sp in sps %}
+        {% if sp.selected and sp.contribution == "IT" %}
+        <a href="{% url 'speaker-detail' sp.id %}"> <h4 class='subtitle'>{{sp.author.first_name}} {{sp.author.last_name}}</h4> </a>
+        {% endif %}
+      {% endfor %}
+      <br>
+      <br>
+      <br>
       <h3>Talks</h3>
       <hr>
       {% for sp in sps %}

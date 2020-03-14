@@ -9,9 +9,11 @@ class Contributor(models.Model):
     key_words = models.CharField(max_length=500,default="")
 
     SPEACH = 'TK'
+    INVITED = 'IT'
     POSTER = 'PO'
     CONTRIBUTION_CHOICES = [
         (SPEACH,'Talk'),
+        (INVITED,'Invited Talk'),
         (POSTER,'Poster')
     ]
     contribution = models.CharField(
@@ -19,7 +21,7 @@ class Contributor(models.Model):
                    choices=CONTRIBUTION_CHOICES,
                    default=SPEACH,
                    )
-    bio = models.TextField(default="")
+    bio = models.TextField(default="", verbose_name="Short Biography")
     selected = models.BooleanField(default=False)
 
     def __str__(self):

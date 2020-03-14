@@ -10,4 +10,6 @@ urlpatterns = [
     path('speakers/<int:pk>', views.SpeakerDetailedView.as_view(), name='speaker-detail'),
     path('abstracts/', views.abstracts, name='abstracts'),
     path('about/', views.about, name='about'),
+    path('privacy/', views.privacy, name='privacy'),
+    path('legal/', views.legal, name='legal')
 ]
