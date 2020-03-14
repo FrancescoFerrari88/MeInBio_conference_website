@@ -33,3 +33,14 @@ def privacy(request):
 
 def legal(request):
     return render(request, 'program/legal.html')
+
+def stats(request):
+    TotWelcome = Contributor.objects.filter(welcome=True)
+    TotCityTour = Contributor.objects.filter(citytour=True)
+    TotDinner = Contributor.objects.filter(restaurant=True)
+    context={
+    'totWelcome':len(TotWelcome),
+    'totCityTour':len(TotCityTour),
+    'totDinner':len(TotDinner)
+    }
+    return render(request, 'program/stats.html',context=context)

@@ -30,7 +30,7 @@ def signup(request):
 
 class createContributorView(LoginRequiredMixin,SuccessMessageMixin,CreateView):
     model = Contributor
-    fields = ['contribution','title','abstract','key_words','bio']
+    fields = ['contribution','title','abstract','key_words','bio','expertise','tolearn','welcome', 'citytour', 'restaurant']
     success_message = "Your application has been saved! Thanks for being awesome!"
     template_name = 'accounts/submission.html'
 
@@ -40,7 +40,7 @@ class createContributorView(LoginRequiredMixin,SuccessMessageMixin,CreateView):
 
 class updateContributorView(LoginRequiredMixin,UserPassesTestMixin, SuccessMessageMixin,UpdateView):
     model = Contributor
-    fields = ['contribution','title','abstract','key_words','bio']
+    fields = ['contribution','title','abstract','key_words','bio','expertise','tolearn','welcome', 'citytour', 'restaurant']
     success_message = "Your application has been updated!"
     template_name = 'accounts/submission.html'
 
